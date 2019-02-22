@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Calculator";
+}
+<h2>Calculator</h2>
+<div class="calc-container">
+    @if (@Model.isDisabled == true)
+    {
+        <input id="message" type="text" value="Nieprawidłowa operacja. Spróbuj ponownie." disabled="disabled">
+    }
+    <div class="calc">
+        @using (Html.BeginForm("Index", "Calculator", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input id="display" type="text" value="@Model.Display" disabled="disabled">
+            <input type="submit" id="clear" name="param" value="C" />
+            <div class="keypad">
+                <input type="submit" name="param" value="7" disabled="@Model.isDisabled" />
+                <input type="submit" name="param" value="8" disabled="@Model.isDisabled" />
+                <input type="submit" name="param" value="9" disabled="@Model.isDisabled" />
+                <input type="submit" name="operation" value="/" disabled="@Model.isDisabled" />
+                <input type="submit" name="operation" value="sqrt" disabled="@Model.isDisabled" />
+                <input type="submit" name="param" value="4" disabled="@Model.isDisabled" />
+                <input type="submit" name="param" value="5" disabled="@Model.isDisabled" />
+                <input type="submit" name="param" value="6" disabled="@Model.isDisabled" />
+                <input type="submit" name="operation" value="*" disabled="@Model.isDisabled" />
+                <input type="submit" name="operation" value="%" disabled="@Model.isDisabled" />
+                <input type="submit" name="param" value="1" disabled="@Model.isDisabled" />
+                <input type="submit" name="param" value="2" disabled="@Model.isDisabled" />
+                <input type="submit" name="param" value="3" disabled="@Model.isDisabled" />
+                <input type="submit" name="operation" value="-" disabled="@Model.isDisabled" />
+                <input type="submit" id="equal" name="operation" value="=" disabled="@Model.isDisabled" />
+                <input type="submit" name="param" value="0" disabled="@Model.isDisabled" />
+                <input type="submit" name="param" value="." disabled="@Model.isDisabled" />
+                <input type="submit" name="param" value="+/-" disabled="@Model.isDisabled" />
+                <input type="submit" name="operation" value="+" disabled="@Model.isDisabled" />
+            </div>
+        }
+    </div>
+</div>
